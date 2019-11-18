@@ -2,41 +2,36 @@ import React, {Component} from "react";
 import GalleryService from "../../services/gallery-service/gallery-service";
 
 export default class Gallery extends Component {
-//345761 - sport
-//271352 - food & drink
-//327760 - nature
+
   state = {
     data: [],
-    page: 1,
-    collectionsID: 3330452
+    page: 1
   }
 
   componentDidMount() {
-    this.uploadPhotos({
-      id: this.state.collectionsID
-    });
+    this.uploadPhotos(this.state.page);
   }
 
-  uploadPhotos({page = 1, id}) {
-    const {data, collectionsID} = this.state;
+  uploadPhotos = (page) => {
+    const {data} = this.state;
+
+    const {collectionId} = this.props;
 
     new GalleryService()
           .getPhotos({
-            id: collectionsID,
-            page: page
+            page: page,
+            id: collectionId
           })
           .then(response => this.setState({
-            data: [...data, ...response],
-            page: page
-          })
-    );
+            data: [...data, ...response]
+          }));
   }
 
-  uploadNewPage() {
-    this.uploadPhotos({
-      page: this.state.page + 1,
-      id: this.state.collectionsID
-    });
+  uploadNewPage = () => {
+    let {page} = this.state;
+    page++;
+    this.uploadPhotos(page);    
+    this.setState({page});
   }
 
   render() {

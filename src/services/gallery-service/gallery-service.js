@@ -17,4 +17,16 @@ export default class GalleryService {
 
     return await response.json();
   }
+
+  getSearch = async({page = 1, query = ""}) => {
+    const pageUrl = page ? `page=${page}` : "";
+    const URL = `${this.urlBase}search/photos?${pageUrl}&query=${query}`;
+
+    const response = await fetch(URL , {
+      method: "get",
+      headers: this.headers
+    });
+
+    return await response.json();
+  }
 }
