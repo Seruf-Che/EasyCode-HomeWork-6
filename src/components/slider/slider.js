@@ -4,7 +4,7 @@ import sliderImg from './1993_McLaren_F1GTR-6-15361.jpg';
 const Slider = () => {
   return (
     <div className={"slider"}>
-      <img 
+      <img
         className={"slider__image"}
         src={sliderImg}
         alt={"slider"}/>

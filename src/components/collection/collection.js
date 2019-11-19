@@ -21,7 +21,7 @@ export default class Collection extends Component {
   uploadPhotos = (page) => {
     const {data} = this.state;
     const {id} = this.props;
-    
+
     service
       .getPhotos({page, id})
       .then(response => this.setState({
@@ -34,7 +34,7 @@ export default class Collection extends Component {
     this.setState({loading: true});
     let {page} = this.state;
     page++;
-    this.uploadPhotos(page);    
+    this.uploadPhotos(page);
     this.setState({page});
   }
 

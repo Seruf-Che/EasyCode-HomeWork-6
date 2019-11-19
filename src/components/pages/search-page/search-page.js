@@ -18,20 +18,20 @@ export default class SearchPage extends Component {
     total: false,
     totalPages: Infinity
   }
-  
+
   onChangeHandler = e => {
     const {value} = e.target
     this.setState({inputText: value});
   }
-  
+
   onSubmitHandler = e => {
     this.setState({
       loading: true,
       page: 1
     });
     e.preventDefault();
-    const {inputText} = this.state;    
-    
+    const {inputText} = this.state;
+
     const query = inputText.trim().replace(/\s/g,"-");
     this.setState({query})
     service
@@ -49,7 +49,7 @@ export default class SearchPage extends Component {
     const {data, query} = this.state;
     let {page} = this.state;
     page++;
-    
+
     service
       .getSearch({page, query})
       .then(response => this.setState({

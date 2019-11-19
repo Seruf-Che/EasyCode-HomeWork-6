@@ -7,20 +7,20 @@ const GalleryItem = (props) => {
   return(
     <div className={"gallery__item"}>
       <div className={"gallery__meta"}>
-        <a 
-          href={html} 
-          className={"gallery__author"} 
-          target="_blank" 
+        <a
+          href={html}
+          className={"gallery__author"}
+          target="_blank"
           rel="noopener noreferrer">
-          <img 
-            src={profile_image.small} 
-            alt={name} 
-            width="32" 
+          <img
+            src={profile_image.small}
+            alt={name}
+            width="32"
             height="32"
             className={"gallery__avatar"}/>
           <span className={"gallery__name"}>{name}</span>
         </a>
-        <a 
+        <a
           href={download}
           className={"gallery__download"}
           target="_blank"
