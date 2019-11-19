@@ -20,7 +20,7 @@ const Menu = () => {
         <NavLink to={"/sport"} className={"menu__link"}>Sport</NavLink>
       </li>
       <li className={"menu__item"}>
-        <NavLink to={"/search"} className={"menu__link"}>Search</NavLink>
+        <NavLink to={"/search"} className={"menu__link"}>Find Photos</NavLink>
       </li>
     </ul>
   )

@@ -1,16 +1,16 @@
 import React from "react";
 
 const SearchInfo = (props) => {
-  const {searchResult} = props;
+  const {total} = props;
   let text = "";
-  if (searchResult < 1) {
+  if (total < 1) {
     text = "Sorry, nothing was found :(";
   } 
-  else if (searchResult === 1) {
+  else if (total === 1) {
     text = "1 picture was found.";
   } 
   else {
-    text = `${searchResult} pictures were found`;
+    text = `${total} pictures were found`;
   }
   
   return (

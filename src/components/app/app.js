@@ -1,19 +1,28 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-import Gallery from "../gallery/gallery";
-import Slider from "../slider/slider";
+
 import Header from "../header/header";
-import SearchResult from "../search-result/search-result";
+import Collection from "../collection/collection";
+import SearchPage from "../pages/search-page/search-page";
+import HomePage from "../pages/home-page/home-page";
 
 class App extends Component {
   
   state = {
-    query: "test"
+    error: false,
+  };
+
+  componentDidCatch(error) {
+    this.setState({
+      error: true
+    })
   }
 
-  render(){
-    const {query} = this.state;
+  render(){  
+    const { error } = this.state;
+
+    if(error) return <div className={"error"}>Something went wrong.... :(</div>; 
     
     return (
       <Router>
@@ -21,23 +30,22 @@ class App extends Component {
           <Header />
           <Switch>
             <Route path="/" exact>
-              <Slider />
-              <Gallery />
+              <HomePage />
             </Route>
             <Route path="/animals" exact>
-              <Gallery key={1} collectionId={3330452}/>
+              <Collection key={1} id={3330452}/>
             </Route>
             <Route path="/food&drink" exact>
-              <Gallery key={2} collectionId={271352}/>
+              <Collection key={2} id={271352}/>
             </Route>
             <Route path="/nature" exact>
-              <Gallery key={3} collectionId={327760}/>
+              <Collection key={3} id={327760}/>
             </Route>
             <Route path="/sport" exact>
-              <Gallery key={4} collectionId={345761}/>
+              <Collection key={4} id={345761}/>
             </Route>
             <Route path="/search">
-              <SearchResult query={query}/>
+              <SearchPage />
             </Route>
             <Route>
               <h1>oooops</h1>
