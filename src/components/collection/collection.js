@@ -23,7 +23,7 @@ export default class Collection extends Component {
     const {id} = this.props;
 
     service
-      .getPhotos({page, id})
+      .getPhotos(page, id)
       .then(response => this.setState({
         data: [...data, ...response],
         loading: false

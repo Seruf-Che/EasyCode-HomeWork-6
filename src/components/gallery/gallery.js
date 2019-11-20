@@ -1,6 +1,6 @@
 import React from "react";
 
-import GalleryItem from "../gallery-item/gallery-item";
+import GalleryItem from "./gallery-item";
 
 const Gallery = (props) => {
 
