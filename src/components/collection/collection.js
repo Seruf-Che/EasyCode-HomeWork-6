@@ -2,8 +2,9 @@ import React, {Component} from "react";
 
 import Gallery from "../gallery/gallery";
 import LoadMoreButton from "../load-more-button/load-more-button";
+import Spinner from "../spinner/spinner"; 
 
-import GalleryService from "../../services/gallery-service/gallery-service";
+import GalleryService from "../../services";
 const service = new GalleryService();
 
 export default class Collection extends Component {
@@ -40,7 +41,8 @@ export default class Collection extends Component {
 
   render() {
     const {data, loading} = this.state;
-
+    const {spinnerOff} = this.props;
+    if (data.length < 1 && !spinnerOff) return <Spinner />
     return(
       <>
       <Gallery data={data} />

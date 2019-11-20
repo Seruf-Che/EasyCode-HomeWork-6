@@ -4,7 +4,7 @@ import Gallery from "../../gallery/gallery";
 import SearchInfo from "../../search-info/search-info";
 import LoadMoreButton from "../../load-more-button/load-more-button";
 
-import GalleryService from "../../../services/gallery-service/gallery-service";
+import GalleryService from "../../../services";
 const service = new GalleryService();
 
 export default class SearchPage extends Component {

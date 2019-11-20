@@ -40,6 +40,17 @@ export default class GalleryService {
     return await response.json();
   };
 
+  getRandomPhoto = async() => {
+    const URL = `${this.urlBase}photos/random`
+
+    const response = await fetch(URL , {
+      method: "get",
+      headers: this.headers
+    });
+
+    return await response.json();
+  };
+
   getUser = async(username) => {
     const URL = `${this.urlBase}users/${username}`
 

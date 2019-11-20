@@ -2,8 +2,11 @@ import React from "react";
 
 import UserCardGalley from "./user-card-gallery";
 import Spinner from "../spinner/spinner"; 
+import InstaIcon from "../svg/icons/instagram"; 
+import TwitIcon from "../svg/icons/twitter"; 
+import WebIcon from "../svg/icons/web"; 
 
-import GalleryService from "../../services/gallery-service/gallery-service";
+import GalleryService from "../../services";
 const service = new GalleryService();
 
 export default class UserCard extends React.Component {
@@ -33,10 +36,10 @@ export default class UserCard extends React.Component {
   
   render() {
     const {user, error, photoData} = this.state;
-    
+    console.log(user)
     if (!user && !error) return <Spinner />
     
-    const {bio, name, downloads, followers_count, following_count, location, profile_image, tags, total_collections, total_likes, total_photos} = user;
+    const {bio, name, downloads, followers_count, following_count, location, profile_image, tags, total_collections, total_likes, total_photos, instagram_username, twitter_username, portfolio_url} = user;
     
     return (
       
@@ -53,14 +56,33 @@ export default class UserCard extends React.Component {
               </div>
             </div>
             <div className="user-card__content">
-              <p>Location: {location}</p>
+              {location ? <p>Location: {location}</p> : ""}
               <p>Total photos: {total_photos}</p>
               <p>Total collections: {total_collections}</p>
               <p>Donwloads: {downloads}</p>
               <p>Total likes: {total_likes}</p>
               <p>Followers: {followers_count}</p>
               <p>Following: {following_count}</p>
-              <p>Tags: {tags.custom.map((e,i) => <span key={i} className="user-card__tag">{`${e.title} `}</span>)}</p>
+              {tags ? <p>Tags: {tags.custom.map((e,i) => 
+                  <span key={i} className="user-card__tag">{`${e.title} `}</span>
+              )}</p> : ""}
+              {instagram_username ? 
+                <a 
+                  href={`//www.instagram.com/${instagram_username}`} 
+                  className="user-card__soc-icon">
+                  <InstaIcon />
+                </a> : ""}
+              {twitter_username ? 
+                <a 
+                  href={`//twitter.com/${twitter_username}`}
+                  className="user-card__soc-icon">
+                  <TwitIcon/>
+                </a> : ""}
+              {portfolio_url ? 
+                <a href={`${portfolio_url}`}
+                   className="user-card__soc-icon">
+                  <WebIcon/>
+                </a> : ""}
             </div>
           </div>
           <UserCardGalley data={photoData}/>

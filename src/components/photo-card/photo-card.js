@@ -3,7 +3,7 @@ import React from "react";
 import PhotoCardMeta from './photo-card-meta';
 import Spinner from "../spinner/spinner"; 
 
-import GalleryService from "../../services/gallery-service/gallery-service";
+import GalleryService from "../../services";
 const service = new GalleryService();
 
 export default class PhotoCard extends React.Component {

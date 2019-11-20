@@ -67,5 +67,32 @@
   &__tag
     text-transform: capitalize
       
-  
+  &__soc-icon
+    position: relative
+    display: inline-block
+    margin-right: 10px
+    width: 48px
+    height: 48px
+    background-color: $color-content
+    border-radius: 50%
+    transition: all 0.3s
+    
+    svg
+      fill: $color-bg
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      margin: auto
+      max-width: 32px
+      max-height: 32px
+      transition: all 0.3s
+      
+    &:hover
+      background-color: $color-bg
+      border-radius: unset
+    
+      svg
+        fill: $color-content
       
