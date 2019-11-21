@@ -42,7 +42,9 @@ export default class Collection extends Component {
   render() {
     const {data, loading} = this.state;
     const {spinnerOff} = this.props;
+    
     if (data.length < 1 && !spinnerOff) return <Spinner />
+      
     return(
       <>
       <Gallery data={data} />

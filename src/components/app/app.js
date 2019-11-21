@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
-
 import Header from "../header/header";
 import Collection from "../collection/collection";
 import PhotoCard from "../photo-card/photo-card"
@@ -54,7 +53,14 @@ class App extends Component {
             <Route path="/sport" exact>
               <Collection key={345761} id={345761}/>
             </Route>
-            <Route path="/search">
+            <Route path="/search/:query"
+              render={ props => 
+                {
+                  const {query} = props.match.params;
+                  return <SearchPage key={query} query={query}/>
+                }
+              }/>
+            <Route path="/search" exact>
               <SearchPage />
             </Route>
             <Route path="/users/:username" exact

@@ -1,4 +1,5 @@
 import React from "react";
+
 import GalleryMeta from "./gallery-meta";
 
 const GalleryItem = (props) => {

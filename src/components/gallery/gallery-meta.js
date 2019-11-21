@@ -5,10 +5,10 @@ import DownloadSvgIcon from "../svg/icons/download";
 
 
 const GalleryMeta = (props) => {
+  const {id} = props;
   const {name = "Author's Avatar", profile_image = {}, username} = props.user;
   const {download} = props.links;
-  const {id} = props;
-  
+
   return (
     <div className={"gallery__meta"}>
       <Link

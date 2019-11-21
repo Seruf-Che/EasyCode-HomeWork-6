@@ -36,7 +36,7 @@ export default class UserCard extends React.Component {
 
   render() {
     const {user, error, photoData} = this.state;
-    console.log(user)
+    
     if (!user && !error) return <Spinner />
 
     const {bio, name, downloads, followers_count, following_count, location, profile_image, tags, total_collections, total_likes, total_photos, instagram_username, twitter_username, portfolio_url} = user;
