@@ -1,0 +1,98 @@
+.user-card
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  margin: 100px 40px
+  
+  &__meta
+    display: flex
+    flex-direction: column
+    width: 35%
+    
+  &__gallery
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-around
+    width: 60%
+    
+  &__image
+    margin: 0 15px
+    margin-bottom: 15px
+    display: block
+    max-width: 60%
+    max-height: 300px
+    border-radius: 10px
+    overflow: hidden
+    transition: all 0.3s
+    &:hover
+      filter: grayscale(0.75)
+    
+    img
+      max-width: 100%
+      max-height: 100%
+  
+  &__main
+    display: flex
+
+    align-items: center
+    text-align: center
+    
+  &__avatar
+    display: block
+    margin-right: 30px
+    width: 128px
+    height: 128px
+    border-radius: 50%
+    
+  &__name
+    width: 80%
+    
+    span
+      font-size: 32px
+      line-height: 1.2em
+    p
+      font-size: 18px
+      line-height: 1.2em
+      
+  &__content
+    margin-top: 20px
+    font-size: 32px
+    line-height: 1.2em
+    
+    p
+      margin: 0
+      margin-bottom: 10px
+      
+  &__tag
+    text-transform: capitalize
+      
+  &__soc-icon
+    position: relative
+    display: inline-block
+    margin-right: 10px
+    width: 48px
+    height: 48px
+    background-color: $color-content
+    border-radius: 50%
+    transition: all 0.3s
+    
+    svg
+      fill: $color-bg
+      position: absolute
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      margin: auto
+      max-width: 32px
+      max-height: 32px
+      transition: all 0.3s
+      
+    &:hover
+      background-color: $color-bg
+      border-radius: unset
+    
+      svg
+        fill: $color-content
+      

@@ -38,10 +38,8 @@
     opacity: 0
     transition: all 0.3s
 
-
   &__item:hover &__meta 
     opacity: 1
-
 
   &__avatar 
     font-size: 10px
@@ -49,21 +47,19 @@
     border-radius: 50%
     transition: all 0.3s
 
-
   &__author 
     display: flex
     flex-direction: row
     align-items: center
     text-decoration: none
-    color: #C5C5DB
+    color: $color-content
     transition: all 0.3s
-
 
   &__author:hover 
     cursor: pointer
-    color: #ffffff
-
-
+    color: $color-content-low
+    text-decoration: none
+  
   &__author:hover &__avatar 
     border-radius: unset
 
@@ -71,14 +67,26 @@
   &__name 
     margin-left: 10px
 
-
   &__download 
     display: block
     margin-left: auto
     width: 32px
     height: 32px
 
-
   &__download svg
-    fill: #C5C5DB
+    fill: $color-content
     transition: all 0.3s
+    
+  &__download:hover svg
+    fill: $color-content-low
+    
+  &__fullimg-link
+    text-align: center
+    color: $color-content
+    font-size: 24px
+    line-height: 1.2em
+    font-weight: 700
+    transition: all 0.3s
+    &:hover
+      color: $color-content-low
+      text-decoration: none

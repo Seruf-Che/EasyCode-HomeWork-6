@@ -6,15 +6,32 @@
 .input
   padding: 4px 10px
   width: 320px
-  border-radius: 8px
-  color: #000
+  color: $color-content
   font-size: 24px
+  background-color: $color-bg-slider
+  border: 2px solid $color-content
+  border-radius: 8px
   
 .button 
   display: block
   margin-left: 10px
   padding: 4px 10px
-  color: #000
+  color: $color-content
+  background-color: $color-bg-slider
+  background-color: $color-bg-slider
+  border: 2px solid $color-content
+  border-radius: 8px
+  transition: all 0.3s
     
   &:disabled
-    opacity: 0.3
+    opacity: 0.3  
+  
+  &:hover
+    opacity: 0.7
+  
+.search-info
+  margin-bottom: 20px
+  width: 100%
+  text-align: center
+  font-size: 36px
+  line-height: 1.2em

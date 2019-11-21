@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <>
       <Slider />
-      <Collection />
+      <Collection spinnerOff={true}/>
     </>
   )
 }

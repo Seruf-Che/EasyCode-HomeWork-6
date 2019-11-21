@@ -1,10 +1,9 @@
 import React, {Component} from "react";
 
 import Gallery from "../../gallery/gallery";
-import SearchInfo from "../../search-info/search-info";
 import LoadMoreButton from "../../load-more-button/load-more-button";
 
-import GalleryService from "../../../services/gallery-service/gallery-service";
+import GalleryService from "../../../services";
 const service = new GalleryService();
 
 export default class SearchPage extends Component {
@@ -19,6 +18,12 @@ export default class SearchPage extends Component {
     totalPages: Infinity
   }
 
+  componentDidMount() {
+    const {query} = this.props;
+    if (query)
+    this.setState({inputText: query}, () => this.onSubmitHandler());
+  }
+
   onChangeHandler = e => {
     const {value} = e.target
     this.setState({inputText: value});
@@ -29,7 +34,8 @@ export default class SearchPage extends Component {
       loading: true,
       page: 1
     });
-    e.preventDefault();
+    
+    if (e) e.preventDefault();
     const {inputText} = this.state;
 
     const query = inputText.trim().replace(/\s/g,"-");
@@ -58,6 +64,12 @@ export default class SearchPage extends Component {
         loading: false
       }));
   }
+  
+  showSearchInfo = (total) => {
+    return total < 1 ? "Sorry, nothing was found :(" :
+           total === 1 ? "1 picture was found." :
+           `${total} pictures were found`
+  }
 
   render() {
     const {data, loading, inputText, total, totalPages, page} = this.state;
@@ -72,6 +84,7 @@ export default class SearchPage extends Component {
             onChange={(e) => this.onChangeHandler(e)}
             placeholder="Type your query here..."
             type="text"
+            value={inputText}
             className={"input"}/>
           <button
             type="submit"
@@ -79,7 +92,7 @@ export default class SearchPage extends Component {
             disabled={inputText.length > 0 ? false : true }>Find</button>
         </form>
         {
-          total !== false ? <SearchInfo total={total}/> : ""
+          total !== false ? <div className="search-info">{this.showSearchInfo(total)}</div> : ""
         }
         {
           data.length > 0 ? <Gallery data={data} /> : ""
