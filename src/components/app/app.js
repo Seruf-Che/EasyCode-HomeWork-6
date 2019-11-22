@@ -3,11 +3,11 @@ import {Route, Switch} from "react-router-dom";
 
 import Header from "../header/header";
 import Collection from "../collection/collection";
-import PhotoCard from "../photo-card/photo-card"
-import UserCard from "../user-card/user-card"
 import SearchPage from "../pages/search-page/search-page";
 import HomePage from "../pages/home-page/home-page";
 import Page404 from "../pages/page-404/page-404";
+import UserPage from "../pages/user-page/user-page";
+import PhotoPage from "../pages/photo-page/photo-page";
 
 const App = () => {
 
@@ -22,7 +22,7 @@ const App = () => {
           render={ (props) => 
             {
               const {id} = props.match.params;
-              return <PhotoCard id={id}/>
+              return <PhotoPage id={id}/>
             }
           }
         />
@@ -52,7 +52,7 @@ const App = () => {
           render={ (props) => 
             {
               const {username} = props.match.params;
-              return <UserCard username={username}/>
+              return <UserPage username={username}/>
             }
           }
         />

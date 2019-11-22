@@ -1,5 +1,7 @@
 import React from "react";
 
+import Spinner from "../spinner/spinner"
+
 export const withData = (Wrapped, getData) => {
   return class extends React.Component {
     
@@ -18,6 +20,8 @@ export const withData = (Wrapped, getData) => {
     
     render() {
       const {data} = this.state;
+      
+      if (!data) return <Spinner />
       
       return <Wrapped data={data}/>
     }
