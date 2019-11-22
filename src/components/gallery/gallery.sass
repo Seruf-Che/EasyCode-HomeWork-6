@@ -17,7 +17,7 @@
     
   &__image
     width: 100%
-    transition: all 0.3s
+    transition: $transition
 
   &__item:hover &__image 
     opacity: 0.5
@@ -36,7 +36,7 @@
     padding: 20px
     z-index: 2
     opacity: 0
-    transition: all 0.3s
+    transition: $transition
 
   &__item:hover &__meta 
     opacity: 1
@@ -45,7 +45,7 @@
     font-size: 10px
     line-height: 1.2em
     border-radius: 50%
-    transition: all 0.3s
+    transition: $transition
 
   &__author 
     display: flex
@@ -53,7 +53,7 @@
     align-items: center
     text-decoration: none
     color: $color-content
-    transition: all 0.3s
+    transition: $transition
 
   &__author:hover 
     cursor: pointer
@@ -75,7 +75,7 @@
 
   &__download svg
     fill: $color-content
-    transition: all 0.3s
+    transition: $transition
     
   &__download:hover svg
     fill: $color-content-low
@@ -86,7 +86,7 @@
     font-size: 24px
     line-height: 1.2em
     font-weight: 700
-    transition: all 0.3s
+    transition: $transition
     &:hover
       color: $color-content-low
       text-decoration: none
