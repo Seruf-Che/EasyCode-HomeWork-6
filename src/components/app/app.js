@@ -8,6 +8,7 @@ import HomePage from "../pages/home-page/home-page";
 import Page404 from "../pages/page-404/page-404";
 import UserPage from "../pages/user-page/user-page";
 import PhotoPage from "../pages/photo-page/photo-page";
+import UserPhotosPage from "../pages/user-photos-page/user-photos-page";
 
 const App = () => {
 
@@ -46,6 +47,14 @@ const App = () => {
             {
               const {username} = props.match.params;
               return <UserPage username={username}/>
+            }
+          }
+        />
+        <Route path="/users/:username/photos" exact
+          render={ (props) => 
+            {
+              const {username} = props.match.params;
+              return <UserPhotosPage username={username}/>
             }
           }
         />
