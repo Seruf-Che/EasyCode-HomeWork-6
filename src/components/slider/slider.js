@@ -1,34 +1,18 @@
 import React from "react";
 
-import GalleryService from "../../services";
-const service = new GalleryService();
+const Slider = (props) => {
+  const {color, urls = {}} = props.data;
 
-export default class Slider extends React.Component {
-  
-  state = {
-    photo: false
-  }
-  
-  componentDidMount() {
-    this.getRandomPhoto();
-  }
-
-  getRandomPhoto = () => {
-    service.getRandomPhoto()
-      .then(photo => this.setState({photo}))
-  }
-
-  render() {
-    const {photo: {color, urls = {}} = {}} = this.state;
-    return (
-      <div 
-        className={"slider"}
-        style={{
-          backgroundColor: color,
-          backgroundImage: `url(${urls.regular})`
-        }}>
-        <h1 className={"slider__content"}>Images Gallery</h1>
-      </div>
-    )
-  }
+  return (
+    <div 
+      className={"slider"}
+      style={{
+        backgroundColor: color,
+        backgroundImage: `url(${urls.regular})`
+      }}>
+      <h1 className={"slider__content"}>Gallery App</h1>
+    </div>
+  )
 }
+
+export default Slider;
