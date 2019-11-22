@@ -7,7 +7,6 @@ import GalleryService from "../../../services";
 const service = new GalleryService();
 
 const PhotoPage = (props) => {
-  console.log(props)
   const PhotoCardComponent = withData(PhotoCard, () => service.getPhoto(props.id))
   
   return (
