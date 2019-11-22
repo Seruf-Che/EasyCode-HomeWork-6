@@ -1,9 +1,9 @@
 import React from "react";
 import {withData} from "../../hoc/with-data";
+import GalleryService from "../../../services";
 
 import UserCard from "../../user-card/user-card";
 
-import GalleryService from "../../../services";
 const service = new GalleryService();
 
 const UserPage = (props) => {

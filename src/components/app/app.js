@@ -18,14 +18,6 @@ const App = () => {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/photos/:id" exact
-          render={ (props) => 
-            {
-              const {id} = props.match.params;
-              return <PhotoPage id={id}/>
-            }
-          }
-        />
         <Route path="/animals" exact>
           <Collection key={3330452} id={3330452}/>
         </Route>
@@ -38,16 +30,17 @@ const App = () => {
         <Route path="/sport" exact>
           <Collection key={345761} id={345761}/>
         </Route>
-        <Route path="/search/:query"
-          render={ props => 
-            {
-              const {query} = props.match.params;
-              return <SearchPage key={query} query={query}/>
-            }
-          }/>
         <Route path="/search" exact>
           <SearchPage />
         </Route>
+        <Route path="/photos/:id" exact
+          render={ (props) => 
+            {
+              const {id} = props.match.params;
+              return <PhotoPage id={id}/>
+            }
+          }
+        />
         <Route path="/users/:username" exact
           render={ (props) => 
             {
@@ -56,6 +49,13 @@ const App = () => {
             }
           }
         />
+        <Route path="/search/:query"
+          render={ props => 
+            {
+              const {query} = props.match.params;
+              return <SearchPage key={query} query={query}/>
+            }
+          }/>
         <Route>
           <Page404 />
         </Route>

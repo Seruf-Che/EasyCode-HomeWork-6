@@ -15,7 +15,7 @@ export default class ErrorIndicator extends React.Component {
   render() {
     const {hasError} = this.state;
     
-    if (hasError) return <div className={"error-indicator"}>Something went wrong.... :(</div>;
+    if (hasError) return <div className={"error-indicator"}>Something went wrong....</div>;
     
     return this.props.children;
   }

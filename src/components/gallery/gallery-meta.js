@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 
 import DownloadSvgIcon from "../svg/icons/download";
 
-
 const GalleryMeta = (props) => {
   const {id} = props;
   const {name = "Author's Avatar", profile_image = {}, username} = props.user;

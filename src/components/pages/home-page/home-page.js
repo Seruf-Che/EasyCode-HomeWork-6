@@ -1,10 +1,10 @@
 import React from "react";
 import {withData} from "../../hoc/with-data";
+import GalleryService from "../../../services";
 
 import Slider from "../../slider/slider";
 import Collection from "../../collection/collection";
 
-import GalleryService from "../../../services";
 const service = new GalleryService();
 
 const HomePage = () => {

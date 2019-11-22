@@ -1,9 +1,9 @@
 import React, {Component} from "react";
+import GalleryService from "../../../services";
 
 import Gallery from "../../gallery/gallery";
 import LoadMoreButton from "../../load-more-button/load-more-button";
 
-import GalleryService from "../../../services";
 const service = new GalleryService();
 
 export default class SearchPage extends Component {

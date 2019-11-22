@@ -2,7 +2,6 @@ import React from "react";
 import {NavLink} from "react-router-dom";
 
 const Menu = () => {
-
   return(
     <ul className={"menu"}>
       <li className={"menu__item"}>
