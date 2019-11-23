@@ -1,5 +1,4 @@
 import React from "react";
-import {withRouter} from "react-router"
 
 import UserCardGalley from "./user-card-gallery";
 import InstaIcon from "../svg/icons/instagram";
@@ -7,11 +6,11 @@ import TwitIcon from "../svg/icons/twitter";
 import WebIcon from "../svg/icons/web";
 
 const UserCard = (props) => {
-  const {data, history} = props;
+  const {data} = props;
 
   if (data.errors) return <h1 className={"user-card__error"}>{[...data.errors]}</h1>
 
-  const {bio, name, downloads, followers_count, following_count, location, profile_image, tags, total_collections, total_likes, total_photos, instagram_username, twitter_username, portfolio_url, photos, username} = data;
+  const {bio, name, downloads, followers_count, following_count, location, profile_image, tags, total_collections, total_likes, total_photos, instagram_username, twitter_username, portfolio_url, username} = data;
 
   return (
     <div className="user-card">
@@ -59,10 +58,9 @@ const UserCard = (props) => {
             </a> : ""}
         </div>
       </div>
-      <UserCardGalley data={photos}/>
-      <button onClick={() => history.push(`/users/${username}/photos`)}>All photos</button>
+      <UserCardGalley username={username}/>
     </div>
   )
 }
 
-export default withRouter(UserCard);
+export default UserCard;
