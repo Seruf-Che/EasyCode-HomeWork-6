@@ -11,7 +11,7 @@ import PhotoPage from "../pages/photo-page/photo-page";
 
 const App = () => {
 
-  return (  
+  return (
     <>
       <Header />
       <Switch>
@@ -34,7 +34,7 @@ const App = () => {
           <SearchPage />
         </Route>
         <Route path="/photos/:id" exact
-          render={ (props) => 
+          render={ (props) =>
             {
               const {id} = props.match.params;
               return <PhotoPage id={id}/>
@@ -42,7 +42,7 @@ const App = () => {
           }
         />
         <Route path="/users/:username" exact
-          render={ (props) => 
+          render={ (props) =>
             {
               const {username} = props.match.params;
               return <UserPage username={username}/>
@@ -50,7 +50,7 @@ const App = () => {
           }
         />
         <Route path="/search/:query"
-          render={ props => 
+          render={ props =>
             {
               const {query} = props.match.params;
               return <SearchPage key={query} query={query}/>

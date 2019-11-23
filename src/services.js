@@ -61,4 +61,16 @@ export default class GalleryService {
 
     return await response.json();
   };
+
+  getUserPhotos = async(page, username) => {
+    const pageUrl = page ? `page=${page}` : "";
+    const URL = `${this.urlBase}users/${username}/photos?${pageUrl}&per_page=20`
+
+    const response = await fetch(URL , {
+      method: "get",
+      headers: this.headers
+    });
+
+    return await response.json();
+  };
 }

@@ -10,7 +10,7 @@ const UserCard = (props) => {
 
   if (data.errors) return <h1 className={"user-card__error"}>{[...data.errors]}</h1>
 
-  const {bio, name, downloads, followers_count, following_count, location, profile_image, tags, total_collections, total_likes, total_photos, instagram_username, twitter_username, portfolio_url, photos} = data;
+  const {bio, name, downloads, followers_count, following_count, location, profile_image, tags, total_collections, total_likes, total_photos, instagram_username, twitter_username, portfolio_url, username} = data;
 
   return (
     <div className="user-card">
@@ -58,7 +58,7 @@ const UserCard = (props) => {
             </a> : ""}
         </div>
       </div>
-      <UserCardGalley data={photos}/>
+      <UserCardGalley username={username}/>
     </div>
   )
 }
